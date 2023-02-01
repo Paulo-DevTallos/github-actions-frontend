@@ -1,0 +1,14 @@
+name: "CI (main)"
+
+on:
+	pull_request:
+		types: [opened, synchronixe]
+
+jobs:
+	linter:
+		runs-on: ubuntu-latest
+		steps:
+			- uses: actions/checkout@v3
+			# run a single command
+			- name: Run Linter
+				run: yarn lint
