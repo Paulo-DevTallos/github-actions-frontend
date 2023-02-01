@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: "CI" # integração continua
+name: "CI (Integração continua) primeira action" # integração continua
 
 # Controls when the workflow will run
 on:
