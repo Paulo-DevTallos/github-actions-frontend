@@ -31,5 +31,4 @@ jobs:
 
       # Runs a listfiles command
       - name: Run a listfile
-        run: |
-          ls -la
+        run: ls -la
