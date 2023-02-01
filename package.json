@@ -1,0 +1,18 @@
+{
+  "name": "estudo-cicd",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Paulo Sergio <pauloserg861@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "rm -rf build && next export && mv ./out ./build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.1.6",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
