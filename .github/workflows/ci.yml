@@ -1,8 +1,8 @@
 name: "CI (main)"
 
 on:
-	pull_request:
-		types: [opened, synchronize]
+  pull_request:
+    types: [opened, synchronize]
 
 jobs:
 	linter:
