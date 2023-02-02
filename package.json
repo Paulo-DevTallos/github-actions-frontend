@@ -6,13 +6,23 @@
   "license": "MIT",
   "scripts": {
     "dev": "next",
-    "build": "rm -rf build && next export && mv ./out ./build",
+    "build": "rm -rf build && next build && next export && mv ./out ./build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+		"deploy": "yarn build && npx vercel ./build --confirm --no-clipboard",
+		"deploy:prod": "yarn deploy --prod --token=$VERCEL_TOKEN"
   },
   "dependencies": {
     "next": "^13.1.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "eslint": "8.33.0",
+    "eslint-config-next": "13.1.6",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.3"
   }
 }

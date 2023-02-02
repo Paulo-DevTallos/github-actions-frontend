@@ -1,14 +1,14 @@
 # This is a basic workflow to help you get started with Actions
 
-name: "CI" # integração continua
+name: "CI (Integração continua) primeira action" # integração continua
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    types: [opened, synchronize]
 
   # Allows you to run this workflow manually from the Actions tab
   #workflow_dispatch:
@@ -29,8 +29,6 @@ jobs:
       - name: Run a one-line script
         run: echo Hello, world!
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+      # Runs a listfiles command
+      - name: Run a listfile
+        run: ls -la
