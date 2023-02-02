@@ -1,9 +1,9 @@
 name: "CD (Entrega contínua): Main Workflow"
 
 env:
-	VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-	VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-	VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
 	push:
