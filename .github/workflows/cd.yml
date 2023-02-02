@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Run Deploy-prod
-        run:
-					yarn install
-					yarn deploy:prod
+      - name: Run Installations
+        run: yarn install
+			- name: Run Deploy
+				run: yarn deploy:prod
