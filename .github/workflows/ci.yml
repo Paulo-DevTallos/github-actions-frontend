@@ -5,12 +5,11 @@ on:
     types: [opened, synchronize]
 
 jobs:
-	linter:
-		runs-on: ubuntu-latest
-		steps:
-			- uses: actions/checkout@v3
-			# run a install command
-			- name: Run Installation
-				run: yarn install
-			- name: Run Linter
-				run: yarn lint
+  linter:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Run Installation
+	run: yarn install
+      - name: Run Linter
+        run: yarn lint
