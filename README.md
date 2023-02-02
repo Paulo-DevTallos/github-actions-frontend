@@ -123,3 +123,40 @@ configurar uma nova secret and variables e criar um repository onde será
 armazenado seu token
 
 link doc github actions: https://docs.github.com/pt/actions/using-workflows/events-that-trigger-workflows
+
+
+Ex:
+# This is a basic workflow to help you get started with Actions
+
+name: "CI (Integração continua) primeira action" # integração continua
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    types: [opened, synchronize]
+
+  # Allows you to run this workflow manually from the Actions tab
+  #workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel - defining what we want execute
+jobs:
+  # This workflow contains a single job called "build"
+  example:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest # OS you can set to run your jobs
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3 # get Git commands throught pre config
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a listfiles command
+      - name: Run a listfile
+        run: ls -la

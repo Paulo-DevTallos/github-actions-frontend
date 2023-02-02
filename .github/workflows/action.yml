@@ -1,34 +1,21 @@
-# This is a basic workflow to help you get started with Actions
+name: "CD (Entrega contínua): Main Workflow"
 
-name: "CI (Integração continua) primeira action" # integração continua
+env:
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "master" ]
-  pull_request:
-    types: [opened, synchronize]
+    branches: [ master ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  #workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel - defining what we want execute
 jobs:
-  # This workflow contains a single job called "build"
-  example:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest # OS you can set to run your jobs
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
+  deploy:
+    runs-on: ubuntu-latest
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3 # get Git commands throught pre config
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a listfiles command
-      - name: Run a listfile
-        run: ls -la
+      - uses: actions/checkout@v3
+      - name: Run Installations
+        run: yarn install
+      - name: Run deploy
+        run: yarn deploy:prod
