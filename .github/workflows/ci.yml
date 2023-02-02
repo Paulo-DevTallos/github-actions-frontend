@@ -5,11 +5,17 @@ on:
     types: [opened, synchronize]
 
 jobs:
+  # This workflow contains a single job called "build"
   linter:
     runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
+
       - name: Run Installation
-	run: yarn install
+        run: yarn install
+
       - name: Run Linter
         run: yarn lint
