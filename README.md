@@ -106,6 +106,7 @@ Obs: utilizar --confirm --no-clipboard pois a flag --name está sendo descontinu
 
 
 * Para realizar o deploy em produção na vercel: é necessário utilizar algumas variáveis de ambiente e configurá-las no arquivo.yml
+npm scripts: "deploy:prod": "yarn build && npx vercel ./build --confirm --no-clipboard --prod --token=$VERCEL_TOKEN"
 ```sh
 env:
 	VERCEL_TOKEN: "algumvalor"
