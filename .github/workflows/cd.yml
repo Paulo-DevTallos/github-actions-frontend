@@ -13,8 +13,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
 			# custom events
+      - uses: actions/checkout@v3
       - name: Run Installations
         run: yarn install
       - name: Run deploy
