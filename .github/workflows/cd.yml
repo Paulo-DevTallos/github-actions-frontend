@@ -17,5 +17,5 @@ jobs:
 
       - name: Run Installations
         run: yarn install
-			- name: Run Deploy
-				run: yarn deploy:prod
+      - name: Run Deploy
+	run-name: yarn deploy:prod
