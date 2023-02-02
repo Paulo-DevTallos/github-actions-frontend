@@ -2,7 +2,7 @@ name: "CI (main)"
 
 on:
 	pull_request:
-		types: [opened, synchronixe]
+		types: [opened, synchronize]
 
 jobs:
 	linter:
