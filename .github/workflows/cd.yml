@@ -1,21 +1,21 @@
 name: "CD (Entrega contínua): Main Workflow"
 
 env:
-	VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
-	VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
-	VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+  VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+  VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
 
 on:
-	push:
-		branches: [ "master" ]
+  push:
+    branches: ["master"]
 
 jobs:
-	deploy:
-		runs-on: ubuntu-latest
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
 
-		steps:
-			- uses: actions/checkout@v3
-			- name: Run Installation
-				run: yarn install
-			- name: Run deploy
-				run: yarn deploy:prod
+      - name: Run installation
+        run: yarn install
+      - name: Run deploy
+        run: yarn deploy:prod
