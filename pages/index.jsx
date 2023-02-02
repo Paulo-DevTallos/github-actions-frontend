@@ -1,7 +1,11 @@
 export default function Home() {
 	return (
-		<div>
-			<h1>Pagina Inicial</h1>
+		<div className="app-container">
+			<div className="content">
+				<h1>
+					Develop. Preview. <span>Ship</span>
+				</h1>
+			</div>
 		</div>
 	);
 }
