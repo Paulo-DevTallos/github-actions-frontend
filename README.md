@@ -89,4 +89,36 @@ executando o script lint --fix é aplicada uma auto correção dos arquivos que 
 habilitando script fix para funcionar em dev:
 "lint:fix": "next lint --fix"
 
+================================================================================================
+Realizando deploy na Vercel
+
+Para realizar esta ação é necessário realizar o build do projeto, visto que essa abordagem é utilizada para
+deploies na Vercel quando se trata de aplicações com o ambiente diferente do ambiente padrão da vercel
+
+yarn build - builda aplicação
+
+npx vercel ./build --name projeto-curso-cicd-teste
+
+Obs: utilizar --confirm --no-clipboard pois a flag --name está sendo descontinuada. Nesse caso o comando de no clipboard passa a url para que seja colada ao navegado e seguir.
+
+é realizado um breve checklist ## obervação: "./" em In which directory is your code located
+é apartir da pasta definida
+
+
+* Para realizar o deploy em produção na vercel: é necessário utilizar algumas variáveis de ambiente e configurá-las no arquivo.yml
+```sh
+env:
+	VERCEL_TOKEN: "algumvalor"
+	VERCEL_ORG_ID: "u5unvEWsQtBZcycyhpey1YdO"
+	VERCEL_PROJECT_ID: "prj_V0S5KNTcRyXVCnUg9aGP4miNLmbU"
+```
+* é possível conseguir o vercel_org_id e vercel_project_id atravez da pasta .vercel que é gerada a partir da CLI.
+
+* Criar token no site da Vercel:
+perfil do usuário => setting => tokens => create token. É importante definir Full account para que haja acesso a toda a conta.
+
+* Para configurar o token no arquivo.yml é preciso ir até as setting do github,
+configurar uma nova secret and variables e criar um repository onde será
+armazenado seu token
+
 link doc github actions: https://docs.github.com/pt/actions/using-workflows/events-that-trigger-workflows
