@@ -12,7 +12,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "deploy:prod": "yarn deploy:staging --prod",
-    "deploy:staging": "yarn build && npx vercel ./build --confirm --no-clipboard --token=$VERCEL_TOKEN",
+    "deploy:staging": "yarn build && npx vercel ./build --yes --token=$VERCEL_TOKEN",
     "deploy:preview": "node ./scripts-ci/pullRequestPreview"
   },
   "dependencies": {
