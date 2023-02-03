@@ -181,7 +181,7 @@ jobs:
 Vercel pull request preview:
 
 * Suporte de previews que é associado ao pull request antes de ir para produção
-para que cada commit novo gere um novo recurso.
+para que cada commit novo gere um novo recurso.s
 diretamente ligado aos conceitos de CI
 
 Abordagem para melhorar a escrita de scripts no package.json
@@ -190,3 +190,14 @@ Abordagem para melhorar a escrita de scripts no package.json
 Ex: pullRequestPreview.js
 
 comando de execução via CI: node ./scripts-ci/pullRequestPreview.js
+
+lembrete:
+para definir uma atualização via CI e garantir que ela não vá para produção é necessário criar ambientes onde isso seja possível. uma recomendação é sempre commitar para uma branch anterior a branch de produção.
+
+Ex:
+
+on:
+	push:
+		branches: [ develop, branch-anterior ]
+  pull_request:
+    types: [opened, synchronize]
