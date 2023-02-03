@@ -1,5 +1,6 @@
 {
   "name": "estudo-cicd",
+  "type": "module",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Paulo Sergio <pauloserg861@gmail.com>",
@@ -10,10 +11,13 @@
     "start": "next start",
     "lint": "next lint",
     "lint:fix": "next lint --fix",
-		"deploy:prod": "yarn build && npx vercel ./build --confirm --no-clipboard --prod --token=$VERCEL_TOKEN"
+    "deploy:prod": "yarn deploy:staging --prod",
+    "deploy:staging": "yarn build && vercel ./build --yes --token=$VERCEL_TOKEN",
+    "deploy:preview": "node ./scripts-ci/pullRequestPreview"
   },
   "dependencies": {
     "next": "^13.1.6",
+    "node-fetch": "^3.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

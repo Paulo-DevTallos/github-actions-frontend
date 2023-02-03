@@ -1,3 +1,19 @@
+O que é CI/CD
+
+Definição: Em engenharia de software CI/CD pode se referir as práticas combinadas de integração e entrega continua.
+CI/CD preenche as lacunas entre as atividades de equipes de desenvolvimento e operação, reforçando a automação na
+compilação, teste e implementação de aplicativos.
+
+Esteira continua:
+Traça um plano => coda => builda => testa => lança => deploy => opera => monitora => (... inicio do ciclo)
+
+Os devs escrevem os codigos e fazem seus commits, garantindo que o código está funcionando como antes.
+CI - Garantir compatibilidade, Enquanto vc quer entregar o seu software (a nova featrure) é preciso garantir que o
+novo caminho, ou o novo botao funcionem de acordo com o que ja existia
+CD - Etapa de entrega, realizado o pull request é preciso garantir que seu produto está testado e compativel
+com tudo oq ja existe
+
+
 Informação:
 para executar o Next JS em desenvolvimento a partir da node_modules
 *** ./node_modules/.bin/next dev
@@ -123,3 +139,65 @@ configurar uma nova secret and variables e criar um repository onde será
 armazenado seu token
 
 link doc github actions: https://docs.github.com/pt/actions/using-workflows/events-that-trigger-workflows
+
+
+Ex:
+# This is a basic workflow to help you get started with Actions
+
+name: "CI (Integração continua) primeira action" # integração continua
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "master" ]
+  pull_request:
+    types: [opened, synchronize]
+
+  # Allows you to run this workflow manually from the Actions tab
+  #workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel - defining what we want execute
+jobs:
+  # This workflow contains a single job called "build"
+  example:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest # OS you can set to run your jobs
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3 # get Git commands throught pre config
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      # Runs a listfiles command
+      - name: Run a listfile
+        run: ls -la
+
+
+Vercel pull request preview:
+
+* Suporte de previews que é associado ao pull request antes de ir para produção
+para que cada commit novo gere um novo recurso.s
+diretamente ligado aos conceitos de CI
+
+Abordagem para melhorar a escrita de scripts no package.json
+* criar-se uma pasta chamada scripts-ci para que atraves de um arquivo de scripts ela possa gerenciar os scripts a serem executados.
+
+Ex: pullRequestPreview.js
+
+comando de execução via CI: node ./scripts-ci/pullRequestPreview.js
+
+lembrete:
+para definir uma atualização via CI e garantir que ela não vá para produção é necessário criar ambientes onde isso seja possível. uma recomendação é sempre commitar para uma branch anterior a branch de produção.
+
+Ex:
+
+on:
+	push:
+		branches: [ develop, branch-anterior ]
+  pull_request:
+    types: [opened, synchronize]
