@@ -1,3 +1,19 @@
+O que é CI/CD
+
+Definição: Em engenharia de software CI/CD pode se referir as práticas combinadas de integração e entrega continua.
+CI/CD preenche as lacunas entre as atividades de equipes de desenvolvimento e operação, reforçando a automação na
+compilação, teste e implementação de aplicativos.
+
+Esteira continua:
+Traça um plano => coda => builda => testa => lança => deploy => opera => monitora => (... inicio do ciclo)
+
+Os devs escrevem os codigos e fazem seus commits, garantindo que o código está funcionando como antes.
+CI - Garantir compatibilidade, Enquanto vc quer entregar o seu software (a nova featrure) é preciso garantir que o
+novo caminho, ou o novo botao funcionem de acordo com o que ja existia
+CD - Etapa de entrega, realizado o pull request é preciso garantir que seu produto está testado e compativel
+com tudo oq ja existe
+
+
 Informação:
 para executar o Next JS em desenvolvimento a partir da node_modules
 *** ./node_modules/.bin/next dev
@@ -160,3 +176,17 @@ jobs:
       # Runs a listfiles command
       - name: Run a listfile
         run: ls -la
+
+
+Vercel pull request preview:
+
+* Suporte de previews que é associado ao pull request antes de ir para produção
+para que cada commit novo gere um novo recurso.
+diretamente ligado aos conceitos de CI
+
+Abordagem para melhorar a escrita de scripts no package.json
+* criar-se uma pasta chamada scripts-ci para que atraves de um arquivo de scripts ela possa gerenciar os scripts a serem executados.
+
+Ex: pullRequestPreview.js
+
+comando de execução via CI: node ./scripts-ci/pullRequestPreview.js
