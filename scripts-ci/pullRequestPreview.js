@@ -41,13 +41,13 @@ fetch(
 		}),
 	}
 )
-	.then((res) => {
-		if (res.ok) return res.json();
-		throw new Error(res.statusText);
+	.then((response) => {
+		if (response.ok) return res.json();
+		throw new Error(response.statusText);
 	})
 	.catch((err) => {
 		console.log("[COMMENT_ON_GITHUB: ERROR]");
-		console.log(err);
+		throw new Error(err);
 	})
 	.finally(() => {
 		console.log("[COMMENT_ON_GITHUB: END]");
