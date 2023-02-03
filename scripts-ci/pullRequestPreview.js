@@ -1,4 +1,5 @@
 import { execSync } from "child_process";
+import fetch from "node-fetch";
 
 // vercel
 console.log("[DEPLOY_PREVIEW]: START");
