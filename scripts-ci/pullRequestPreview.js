@@ -13,16 +13,12 @@ console.log(`You can see the deploy preview on ${DEPLOY_URL}`);
 
 // github
 console.log("[GITHUB_COMMENT]: START");
-
-const { GITHUB_TOKEN, GITHUB_PR_NUMBER, GITHUB_REPOSITORY } = process.env;
-// variavel em markdown
+const { GITHUB_TOKEN, GITHUB_REPOSITORY, GITHUB_PR_NUMBER } = process.env;
 const GH_COMMENT = `
-	- Deploy URL: [${DEPLOY_URL}] (${DEPLOY_URL})
+- Deploy URL: [${DEPLOY_URL}](${DEPLOY_URL})
 `;
 
-//default headers
 const defaultHeaders = {};
-
 defaultHeaders["authorization"] = `token ${GITHUB_TOKEN}`;
 defaultHeaders["accept"] =
 	"application/vnd.github.v3+json; application/vnd.github.antiope-preview+json";
@@ -42,8 +38,7 @@ fetch(
 	}
 )
 	.then((response) => {
-		console.log(response);
-		if (response.status) return response.json();
+		if (response.ok) return response.json();
 		throw new Error(response.statusText);
 	})
 	.catch((err) => {
