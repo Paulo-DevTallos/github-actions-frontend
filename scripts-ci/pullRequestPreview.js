@@ -42,7 +42,7 @@ fetch(
 	}
 )
 	.then((response) => {
-		if (response) return response.json();
+		if (response.ok) return response.json();
 		throw new Error(response.statusText);
 	})
 	.catch((err) => {
