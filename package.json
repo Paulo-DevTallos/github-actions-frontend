@@ -13,7 +13,9 @@
     "lint:fix": "next lint --fix",
     "deploy:prod": "yarn deploy:staging --prod",
     "deploy:staging": "yarn build && vercel ./build --yes --token=$VERCEL_TOKEN",
-    "deploy:preview": "node ./scripts-ci/pullRequestPreview"
+    "deploy:preview": "node ./scripts-ci/pullRequestPreview",
+		"cypress:open": "cypress open",
+		"cypress": "cypress run --config-file=cypress.config.js"
   },
   "dependencies": {
     "next": "^13.1.6",
@@ -22,6 +24,7 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "cypress": "^12.5.1",
     "eslint": "8.33.0",
     "eslint-config-next": "13.1.6",
     "eslint-config-prettier": "^8.6.0",

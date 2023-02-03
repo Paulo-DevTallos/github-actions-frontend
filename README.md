@@ -201,3 +201,14 @@ on:
 		branches: [ develop, branch-anterior ]
   pull_request:
     types: [opened, synchronize]
+
+
+Implementando Cypress para testes automatizados dentro do CI/CD
+
+Por padrão o script de run do cypress: "cypress:open" executa cypress open - que entrega um ambiente de configuração feito no navegado.
+Criando um ambiente de testes conforme pre-definido.
+
+Para inibir esse comportamento com o Cypress é necessário utilizar o Script cypress que execute o comando "cypress run --config-file=cypress.config.js"
+Isso fará que o ambiente de teste nao execute o navegador em um padrão de testes chamado de headless.
+
+Dessa forma é possível rodar os testes em ambientes de CI, sendo possível verificar os logs e o retorno dos testes.
