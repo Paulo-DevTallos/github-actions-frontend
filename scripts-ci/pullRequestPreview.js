@@ -38,7 +38,8 @@ fetch(
 	}
 )
 	.then((response) => {
-		if (response.ok) return response.json();
+		console.log(response.status);
+		if (response.status) return response.json();
 		throw new Error(response.statusText);
 	})
 	.catch((err) => {
