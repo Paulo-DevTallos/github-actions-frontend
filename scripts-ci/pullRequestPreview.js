@@ -16,7 +16,7 @@ console.log("[GITHUB_COMMENT]: START");
 const { GITHUB_TOKEN, GITHUB_PR_NUMBER, GITHUB_REPOSITORY } = process.env;
 // variavel em markdown
 const GH_COMMENT = `
-	- Deploy URL: [${vercelUrl}] (${vercelUrl})
+	- Deploy URL: [${DEPLOY_URL}] (${DEPLOY_URL})
 `;
 
 //default headers
