@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function About() {
 	return (
 		<div className="app-container">
@@ -6,6 +8,9 @@ export default function About() {
 					Página. Sobre. <span>Ship</span>
 				</h1>
 			</div>
+			<Link href="/">
+				<a>Clique aqui para navegar</a>
+			</Link>
 		</div>
 	);
 }
