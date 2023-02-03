@@ -41,11 +41,8 @@ fetch(
 		}),
 	}
 )
-	.then((response) => {
-		console.log(response);
-		/*if (response.ok) return res.json();
-		throw new Error(response.statusText);*/
-	})
+	.then((response) => response.json())
+	.then((json) => console.log(json));
 	/*.catch((err) => {
 		console.log("[COMMENT_ON_GITHUB: ERROR]");
 		throw new Error(err);
