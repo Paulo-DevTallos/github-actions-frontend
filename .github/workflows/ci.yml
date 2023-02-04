@@ -23,7 +23,6 @@ jobs:
 
       - name: Run linter
         run: yarn lint
-
   preview:
     runs-on: ubuntu-latest
 
@@ -51,8 +50,4 @@ jobs:
 				with:
 					browser: chrome
 
-			- name: Run Installation
-				run: yarn install
-			- name: Run teste_e2e
-				run: yarn cypress
 
